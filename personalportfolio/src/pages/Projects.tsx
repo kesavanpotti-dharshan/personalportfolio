@@ -1,76 +1,78 @@
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+'use client';
+
+import { motion } from 'framer-motion';
+import Modal from '../components/Modal';
+import { useState } from 'react';
 
 const projects = [
     {
-        title: "AI-Powered Email Enhancer",
-        description:
-            "Built with .NET Core API + React + OpenAI to rewrite and improve user emails.",
-        stack: [".NET Core", "React", "OpenAI", "Tailwind"],
-        github: "https://github.com/yourname/email-enhancer",
-        demo: "https://email-enhancer-demo.vercel.app",
+        title: 'AI Resume Enhancer',
+        description: 'A tool to rewrite resumes using OpenAI and .NET Core API.',
+        tech: ['.NET Core', 'React', 'OpenAI'],
+        image: '/resume-enhancer.png',
+        demo: 'https://your-resume-demo.vercel.app',
+        github: 'https://github.com/yourname/resume-enhancer',
     },
     {
-        title: "H-1B LCA Filing Explorer",
-        description:
-            "A dashboard to explore U.S. H-1B LCA filings using filters and charts. ASP.NET Core + SQL + Chart.js.",
-        stack: ["ASP.NET Core", "SQL Server", "Chart.js", "React"],
-        github: "https://github.com/yourname/h1b-lca-explorer",
-        demo: "",
+        title: 'LCA Insights',
+        description: 'Web app to analyze H1B LCA data with visual dashboards.',
+        tech: ['Next.js', 'Tailwind', 'Chart.js'],
+        image: '/lca-insights.png',
+        demo: 'https://lca-insights.vercel.app',
+        github: 'https://github.com/yourname/lca-insights',
     },
-    // Add more projects here
 ];
 
+const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i: number) => ({
+        opacity: 1,
+        y: 0,
+        transition: { delay: i * 0.2, duration: 0.6 },
+    }),
+};
+
 export default function Projects() {
+    const [selected, setSelected] = useState(null);
+
     return (
-        <section className="max-w-6xl mx-auto px-4 py-16">
-            <h1 className="text-4xl font-bold text-center mb-10 text-gray-800 dark:text-white">
-                Projects
-            </h1>
-            <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <section className="py-16 px-4 max-w-5xl mx-auto">
+            <h2 className="text-4xl font-bold mb-10 text-center">Projects</h2>
+
+            <div className="grid gap-8 md:grid-cols-2">
                 {projects.map((project, i) => (
-                    <div
+                    <motion.div
                         key={i}
-                        className="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-6 flex flex-col justify-between hover:shadow-2xl transition"
+                        custom={i}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={cardVariants}
+                        whileHover={{ scale: 1.03, boxShadow: '0 8px 30px rgba(0,0,0,0.12)' }}
+                        transition={{ type: 'spring', stiffness: 300 }}
+                        className="cursor-pointer bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md border border-gray-200 dark:border-gray-700"
+                        onClick={() => setSelected(project)}
                     >
-                        <div>
-                            <h2 className="text-2xl font-semibold mb-2 text-blue-600">{project.title}</h2>
-                            <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
-                            <div className="flex flex-wrap gap-2 mb-4">
-                                {project.stack.map((tech, j) => (
-                                    <span
-                                        key={j}
-                                        className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-300 px-2 py-1 rounded"
-                                    >
-                                        {tech}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="flex gap-4 mt-4">
-                            {project.github && (
-                                <a
-                                    href={project.github}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white"
+                        <h3 className="text-2xl font-semibold text-indigo-600 dark:text-indigo-400">
+                            {project.title}
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 mt-2">{project.description}</p>
+                        <ul className="flex gap-2 mt-4 flex-wrap">
+                            {project.tech.map((tech, idx) => (
+                                <li
+                                    key={idx}
+                                    className="text-sm bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-200 px-2 py-1 rounded"
                                 >
-                                    <FaGithub size={20} />
-                                </a>
-                            )}
-                            {project.demo && (
-                                <a
-                                    href={project.demo}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600"
-                                >
-                                    <FaExternalLinkAlt size={20} />
-                                </a>
-                            )}
-                        </div>
-                    </div>
+                                    {tech}
+                                </li>
+                            ))}
+                        </ul>
+                    </motion.div>
                 ))}
             </div>
+
+            {/* Modal */}
+            {selected && <Modal project={selected} onClose={() => setSelected(null)} />}
         </section>
     );
 }

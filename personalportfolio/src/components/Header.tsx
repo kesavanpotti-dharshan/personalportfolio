@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import ThemeToggle from "./ThemeToggle";
+// import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
     const { pathname } = useLocation();
@@ -17,7 +17,7 @@ export default function Header() {
             <div className="container mx-auto px-4 py-4 flex items-center justify-between">
                 {/* Logo or name */}
                 <Link to="/" className="text-xl font-bold text-blue-600">
-                    [YourName].dev
+                    Dharshan.dev
                 </Link>
 
                 {/* Navigation */}
@@ -50,7 +50,7 @@ export default function Header() {
                     >
                         <FaLinkedin />
                     </a>
-                    <ThemeToggle />
+                    {/* <ThemeToggle /> */}
                 </nav>
             </div>
         </header>

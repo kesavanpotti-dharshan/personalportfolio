@@ -1,6 +1,13 @@
+import { motion } from 'framer-motion';
 export default function About() {
     return (
-        <section className="max-w-3xl mx-auto text-center py-16">
+        // <section className="max-w-3xl mx-auto text-center py-16">
+        <motion.section
+            className="p-8 max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
+        >
             <h1 className="text-4xl font-bold mb-4 text-gray-800 dark:text-white">About Me</h1>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
                 I'm a passionate .NET Lead Developer with 13+ years of experience building scalable web applications using C#, ASP.NET Core, SQL Server, React, and Azure.
@@ -9,6 +16,7 @@ export default function About() {
                 I specialize in architecting enterprise-grade solutions, mentoring developers, and delivering high-performance products.
                 My portfolio highlights real-world applications, RPA tools, cloud-hosted APIs, and frontend/backend projects.
             </p>
-        </section>
+            {/* </section> */}
+        </motion.section >
     );
 }
