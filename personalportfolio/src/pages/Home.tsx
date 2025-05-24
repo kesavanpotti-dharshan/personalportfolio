@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import avatar from '../assets/avatar.png';
 
 export default function Home() {
     return (
         <section className="flex flex-col items-center text-center py-20 relative overflow-hidden">
             {/* Decorative background blobs */}
-            <div className="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-blob -z-10"></div>
-            <div className="absolute bottom-0 right-0 w-72 h-72 bg-purple-100 rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-blob animation-delay-2000 -z-10"></div>
+            <div className="absolute top-0 left-0 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-blob -z-10"></div>
+            <div className="absolute bottom-0 right-0 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-2000 -z-10"></div>
 
             {/* Avatar */}
             <img
-                src="./assets/avatar.png"
+                src={avatar}
                 alt="Dharshan Kesavan Potti"
                 className="w-32 h-32 rounded-full border-4 border-blue-500 shadow-lg mb-6 object-cover"
             />

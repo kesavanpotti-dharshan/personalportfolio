@@ -13,7 +13,7 @@ export default function Header() {
     ];
 
     return (
-        <header className="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-sm">
+        <header className="sticky top-0 z-50 bg-gray-100 dark:bg-gray-800 shadow-sm">
             <div className="container mx-auto px-4 py-4 flex items-center justify-between">
                 {/* Logo or name */}
                 <Link to="/" className="text-xl font-bold text-blue-600">
@@ -21,7 +21,7 @@ export default function Header() {
                 </Link>
 
                 {/* Navigation */}
-                <nav className="flex items-center gap-6 text-gray-700 dark:text-gray-300">
+                <nav className="flex items-center gap-7 text-gray-700 dark:text-gray-300">
                     {navItems.map((item) => (
                         <Link
                             key={item.path}
