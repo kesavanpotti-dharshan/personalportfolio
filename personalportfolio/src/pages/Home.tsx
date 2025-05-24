@@ -35,6 +35,12 @@ export default function Home() {
                 >
                     View Projects
                 </Link>
+                <Link
+                    to="/blogs"
+                    className="bg-white border border-blue-600 text-blue-600 px-8 py-3 rounded-full font-semibold shadow-md hover:bg-blue-50 transition"
+                >
+                    View Blogs
+                </Link>
                 <a
                     href="/resume.pdf"
                     target="_blank"

@@ -14,8 +14,8 @@ export default function Header() {
     ];
 
     return (
-        <header className="sticky top-0 z-50 bg-gray-100 dark:bg-gray-800 shadow-sm">
-            <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <header className="sticky top-0 left-0 right-0 z-50 bg-gray-100 dark:bg-gray-800 shadow-sm w-full">
+            <div className="w-full px-4 py-4 flex items-center justify-between h-20">
                 {/* Logo or name */}
                 <Link to="/" className="text-xl font-bold text-blue-600">
                     Dharshan.dev
