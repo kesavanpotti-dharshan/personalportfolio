@@ -1,10 +1,23 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import Modal from '../components/Modal';
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X } from 'lucide-react';
 
-const projects = [
+export interface Project {
+    title: string;
+    description: string;
+    tech: string[];
+    image?: string;
+    demo?: string;
+    github?: string;
+}
+interface ModalProps {
+    project: Project;
+    onClose: () => void;
+}
+
+const projects: Project[] = [
     {
         title: 'AI Resume Enhancer',
         description: 'A tool to rewrite resumes using OpenAI and .NET Core API.',
@@ -32,47 +45,111 @@ const cardVariants = {
     }),
 };
 
-export default function Projects() {
-    const [selected, setSelected] = useState(null);
+function Modal({ project, onClose }: ModalProps) {
+    if (!project) return null;
 
     return (
-        <section className="py-16 px-4 max-w-5xl mx-auto">
-            <h2 className="text-4xl font-bold mb-10 text-center">Projects</h2>
+        <AnimatePresence>
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+                onClick={onClose}
+            >
+                <motion.div
+                    onClick={e => e.stopPropagation()}
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.8, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-white dark:bg-gray-900 text-black dark:text-white max-w-lg w-full rounded-xl shadow-xl p-6 relative"
+                >
+                    <button onClick={onClose} className="absolute top-4 right-4 text-gray-500 hover:text-red-500">
+                        <X size={24} />
+                    </button>
 
-            <div className="grid gap-8 md:grid-cols-2">
-                {projects.map((project, i) => (
+                    {project.image && (
+                        <img src={project.image} alt={project.title} className="rounded-lg mb-4 w-full" />
+                    )}
+
+                    <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
+                    <p className="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
+
+                    <ul className="flex gap-2 flex-wrap mb-4">
+                        {project.tech.map((tech, idx) => (
+                            <li
+                                key={idx}
+                                className="text-sm bg-indigo-100 dark:bg-indigo-800 text-indigo-700 dark:text-indigo-200 px-2 py-1 rounded"
+                            >
+                                {tech}
+                            </li>
+                        ))}
+                    </ul>
+
+                    <div className="flex gap-4 mt-4">
+                        {project.demo && (
+                            <a
+                                href={project.demo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-600 dark:text-blue-400 underline"
+                            >
+                                Live Demo
+                            </a>
+                        )}
+                        {project.github && (
+                            <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-600 dark:text-blue-400 underline"
+                            >
+                                GitHub
+                            </a>
+                        )}
+                    </div>
+                </motion.div>
+            </motion.div>
+        </AnimatePresence>
+    );
+}
+
+export default function Projects() {
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+    return (
+        <div className="container mx-auto py-12">
+            <h1 className="text-4xl font-bold mb-10 text-center text-gray-800 dark:text-white">Projects</h1>
+            <div className="grid md:grid-cols-2 gap-8">
+                {projects.map((proj, idx) => (
                     <motion.div
-                        key={i}
-                        custom={i}
+                        key={proj.title}
+                        custom={idx}
                         initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
+                        animate="visible"
                         variants={cardVariants}
-                        whileHover={{ scale: 1.03, boxShadow: '0 8px 30px rgba(0,0,0,0.12)' }}
-                        transition={{ type: 'spring', stiffness: 300 }}
-                        className="cursor-pointer bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md border border-gray-200 dark:border-gray-700"
-                        onClick={() => setSelected(project)}
+                        className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 cursor-pointer hover:scale-105 transition"
+                        onClick={() => setSelectedProject(proj)}
                     >
-                        <h3 className="text-2xl font-semibold text-indigo-600 dark:text-indigo-400">
-                            {project.title}
-                        </h3>
-                        <p className="text-gray-600 dark:text-gray-300 mt-2">{project.description}</p>
-                        <ul className="flex gap-2 mt-4 flex-wrap">
-                            {project.tech.map((tech, idx) => (
-                                <li
-                                    key={idx}
-                                    className="text-sm bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-200 px-2 py-1 rounded"
-                                >
+                        {proj.image && (
+                            <img src={proj.image} alt={proj.title} className="rounded-lg mb-4 w-full" />
+                        )}
+                        <h3 className="text-xl font-bold mb-2">{proj.title}</h3>
+                        <p className="text-gray-600 dark:text-gray-300 mb-2">{proj.description}</p>
+                        <div className="flex gap-2 flex-wrap">
+                            {proj.tech.map((tech, idx) => (
+                                <span key={idx} className="text-xs bg-indigo-100 dark:bg-indigo-800 text-indigo-700 dark:text-indigo-200 px-2 py-1 rounded">
                                     {tech}
-                                </li>
+                                </span>
                             ))}
-                        </ul>
+                        </div>
                     </motion.div>
                 ))}
             </div>
-
-            {/* Modal */}
-            {selected && <Modal project={selected} onClose={() => setSelected(null)} />}
-        </section>
+            {selectedProject && (
+                <Modal project={selectedProject} onClose={() => setSelectedProject(null)} />
+            )}
+        </div>
     );
 }
