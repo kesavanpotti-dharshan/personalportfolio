@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { FcBriefcase, FcEditImage } from "react-icons/fc";
+import projectData from '../data/projects.json';
 
 export interface Project {
     title: string;
@@ -17,25 +18,6 @@ interface ModalProps {
     project: Project;
     onClose: () => void;
 }
-
-const projects: Project[] = [
-    {
-        title: 'AI Resume Enhancer',
-        description: 'A tool to rewrite resumes using OpenAI and .NET Core API.',
-        tech: ['.NET Core', 'React', 'OpenAI'],
-        image: '/resume-enhancer.png',
-        demo: 'https://your-resume-demo.vercel.app',
-        github: 'https://github.com/yourname/resume-enhancer',
-    },
-    {
-        title: 'LCA Insights',
-        description: 'Web app to analyze H1B LCA data with visual dashboards.',
-        tech: ['Next.js', 'Tailwind', 'Chart.js'],
-        image: '/lca-insights.png',
-        demo: 'https://lca-insights.vercel.app',
-        github: 'https://github.com/yourname/lca-insights',
-    },
-];
 
 const cardVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -126,7 +108,7 @@ export default function Projects() {
         <div className="container mx-auto py-12">
             <h1 className="text-4xl font-bold mb-10 text-center text-gray-800 dark:text-white">Projects</h1>
             <div className="grid md:grid-cols-2 gap-8">
-                {projects.map((proj, idx) => (
+                {projectData.map((proj, idx) => (
                     <motion.div
                         key={proj.title}
                         custom={idx}

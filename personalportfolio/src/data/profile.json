@@ -1,0 +1,34 @@
+{
+  "name": "Dharshan Kesavan Potti",
+  "title": "Lead .NET Developer",
+  "bio": "Passionate developer with 13+ years of experience in building scalable enterprise solutions.",
+  "email": "john.doe@example.com",
+  "location": "Bangalore, India",
+  "socials": [
+    {
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com/in/dharshankesavan",
+      "icon": "FaLinkedin"
+    },
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/kesavanpotti-dharshan",
+      "icon": "FaGithub"
+    },
+    {
+      "platform": "Twitter",
+      "url": "https://twitter.com/dharshankesavan",
+      "icon": "FaTwitter"
+    }
+  ],
+  "skills": [
+    ".NET Core",
+    "C#",
+    "React",
+    "SQL",
+    "Azure",
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ]
+}

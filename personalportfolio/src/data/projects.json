@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Smart Infra Monitoring Portal",
+    "description": "Built a scalable web portal to monitor and manage enterprise infrastructure. Integrated real-time alerts, asset tracking, and downtime analytics. Reduced manual checks by 80%.",
+    "tech": [".NET Core", "React", "SQL Server", "Azure", "Kubernetes"],
+    "image": "/projects/smart-infra-portal.png",
+    "demo": "https://infra.example.com",
+    "github": "https://github.com/yourusername/smart-infra-portal"
+  },
+  {
+    "title": "Invoice Automation System",
+    "description": "Automated invoice extraction and validation using OCR and AssistEdge RPA. Integrated with SAP for posting and reconciliation.",
+    "tech": ["C#", "SQL Server", "AssistEdge", "SAP"],
+    "image": "/projects/invoice-automation.png",
+    "demo": "",
+    "github": ""
+  },
+  {
+    "title": "AI-Powered Chatbot",
+    "description": "Developed a chatbot using Python and TensorFlow for customer support. Integrated with Slack and Microsoft Teams.",
+    "tech": ["Python", "TensorFlow", "Slack API", "Microsoft Teams API"],
+    "image": "/projects/chatbot.png",
+    "demo": "",
+    "github": ""
+  },
+  {
+    "title": "E-commerce Recommendation System",
+    "description": "Built a recommendation engine using collaborative filtering and machine learning algorithms. Improved user engagement by 30%.",
+    "tech": ["Python", "Pandas", "Scikit-learn", "Flask"],
+    "image": "/projects/recommendation-system.png",
+    "demo": "",
+    "github": ""
+  },
+  {
+    "title": "Real-time Data Visualization Dashboard",
+    "description": "Created a dashboard using D3.js and Node.js for real-time data visualization. Integrated with WebSocket for live updates.",
+    "tech": ["D3.js", "Node.js", "WebSocket"],
+    "image": "/projects/data-dashboard.png",
+    "demo": "",
+    "github": ""
+  },
+  {
+    "title": "Mobile Expense Tracker App",
+    "description": "Developed a cross-platform mobile app using React Native for tracking expenses. Integrated with Firebase for real-time data sync.",
+    "tech": ["React Native", "Firebase"],
+    "image": "/projects/expense-tracker.png",
+    "demo": "",
+    "github": ""
+  }
+]

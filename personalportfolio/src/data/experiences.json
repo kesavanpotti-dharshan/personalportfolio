@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Lead .NET Developer",
+    "company": "Infosys",
+    "duration": "Aug 2020 - Present",
+    "location": "Bangalore, India",
+    "description": [
+      "Architected and developed RESTful APIs using .NET Core.",
+      "Led a team of 6 developers for critical infrastructure projects.",
+      "Implemented CI/CD with Azure DevOps and Docker.",
+      "Conducted regular code reviews and technical mentorship."
+    ],
+    "tech": [".NET Core", "Azure DevOps", "Docker", "React"]
+  },
+  {
+    "title": "Senior Software Engineer",
+    "company": "TCS",
+    "duration": "Jul 2015 - Jul 2020",
+    "location": "Chennai, India",
+    "description": [
+      "Developed APIs and internal tools for invoice processing.",
+      "Built RPA bots for business process automation using AssistEdge.",
+      "Reduced invoice processing time by 40%."
+    ],
+    "tech": ["C#", "AssistEdge", "SQL", "MVC"]
+  }
+]

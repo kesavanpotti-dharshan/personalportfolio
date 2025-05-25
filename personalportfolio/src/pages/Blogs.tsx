@@ -2,19 +2,13 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-
-const blogs = Array.from({ length: 12 }).map((_, i) => ({
-    title: `Blog Post ${i + 1}`,
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel felis nec nulla porta.',
-    date: `2025-05-${(i + 1).toString().padStart(2, '0')}`,
-    tags: ['Next.js', 'React', 'Tailwind'],
-}));
+import blogsData from '../data/blogs.json';
 
 export default function Blogs() {
     const [search, setSearch] = useState('');
     const [visibleCount, setVisibleCount] = useState(6);
 
-    const filteredBlogs = blogs.filter((b) =>
+    const filteredBlogs = blogsData.filter((b) =>
         b.title.toLowerCase().includes(search.toLowerCase())
     );
 
@@ -45,7 +39,7 @@ export default function Blogs() {
                     >
                         <h3 className="text-2xl font-semibold text-indigo-600 dark:text-indigo-400">{blog.title}</h3>
                         <p className="text-sm text-gray-400 mb-2">{blog.date}</p>
-                        <p className="text-gray-600 dark:text-gray-300 mb-3">{blog.excerpt}</p>
+                        <p className="text-gray-600 dark:text-gray-300 mb-3">{blog.summary}</p>
                         <ul className="flex gap-2 flex-wrap">
                             {blog.tags.map((tag, idx) => (
                                 <li

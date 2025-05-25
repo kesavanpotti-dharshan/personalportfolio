@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Top 5 Design Patterns Every .NET Developer Should Know",
+    "date": "2024-12-15",
+    "summary": "Explore key design patterns that boost scalability in .NET apps.",
+    "slug": "dotnet-design-patterns",
+    "tags": [".NET", "Design Patterns", "Architecture"]
+  },
+  {
+    "title": "CI/CD for .NET Projects with Azure DevOps",
+    "date": "2024-11-20",
+    "summary": "Step-by-step guide to build pipelines for .NET Core using Azure DevOps.",
+    "slug": "cicd-azure-dotnet",
+    "tags": ["CI/CD", "Azure DevOps", ".NET"]
+  },
+  {
+    "title": "Building RESTful APIs with ASP.NET Core",
+    "date": "2024-10-10",
+    "summary": "Learn how to create robust RESTful APIs using ASP.NET Core.",
+    "slug": "restful-apis-aspnet-core",
+    "tags": ["ASP.NET Core", "APIs", "Web Development"]
+  },
+  {
+    "title": "Unit Testing in .NET: Best Practices",
+    "date": "2024-09-05",
+    "summary": "Discover best practices for unit testing in .NET applications.",
+    "slug": "unit-testing-dotnet",
+    "tags": [".NET", "Testing", "Best Practices"]
+  },
+  {
+    "title": "Getting Started with Blazor: A Beginner's Guide",
+    "date": "2024-08-15",
+    "summary": "An introduction to Blazor and how to build interactive web UIs.",
+    "slug": "blazor-beginners-guide",
+    "tags": ["Blazor", "Web Development", ".NET"]
+  },
+  {
+    "title": "Understanding Dependency Injection in .NET Core",
+    "date": "2024-07-20",
+    "summary": "A deep dive into dependency injection and its benefits in .NET Core.",
+    "slug": "dependency-injection-dotnet-core",
+    "tags": [".NET Core", "Dependency Injection", "Architecture"]
+  },
+  {
+    "title": "Microservices Architecture with .NET Core",
+    "date": "2024-06-30",
+    "summary": "Learn how to build microservices using .NET Core and Docker.",
+    "slug": "microservices-dotnet-core",
+    "tags": [".NET Core", "Microservices", "Docker"]
+  },
+  {
+    "title": "Securing ASP.NET Core Applications",
+    "date": "2024-05-25",
+    "summary": "Best practices for securing your ASP.NET Core applications.",
+    "slug": "securing-aspnet-core",
+    "tags": ["ASP.NET Core", "Security", ".NET"]
+  }
+]
