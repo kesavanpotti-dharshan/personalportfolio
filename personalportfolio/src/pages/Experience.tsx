@@ -19,7 +19,7 @@ type Experience = {
     tech: string[];
 };
 
-export default function ExperienceTimeline() {
+export default function Experiences() {
     const [selected, setSelected] = useState<Experience | null>(null);
 
     return (
