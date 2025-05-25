@@ -17,7 +17,7 @@ export default function Home() {
             />
 
             <h1 className="text-5xl font-extrabold mb-4 text-gray-800 dark:text-white drop-shadow-lg">
-                Hi, I'm <span className="text-blue-600">Dharshan Kesavan Potti</span>
+                Hi, I'm <span className="text-blue-400">Dharshan Kesavan Potti</span>
             </h1>
             <h2 className="text-2xl font-semibold text-gray-600 dark:text-gray-300 mb-6 tracking-wide">
                 Full Stack .NET Developer <span className="mx-2">|</span> C# <span className="mx-2">|</span> React <span className="mx-2">|</span> Azure

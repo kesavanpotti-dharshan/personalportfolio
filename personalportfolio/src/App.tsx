@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Blogs from './pages/Blogs';
+import ExperienceTimeline from './pages/Experience';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/experiences" element={<ExperienceTimeline />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/contact" element={<Contact />} />
